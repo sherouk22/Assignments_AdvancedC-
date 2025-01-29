@@ -75,9 +75,20 @@
 
             #region 4. You are given a list of integers. Your task is to find and return a new list containing only the even numbers from the given list.
 
-                        List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            Console.WriteLine("Even Numbers: " + string.Join(' ', Helper<int>.EvenNumbers(numbers))); 
+            //Console.WriteLine("Even Numbers: " + string.Join(' ', Helper<int>.EvenNumbers(numbers)));
+            #endregion
+
+            #region  5. implement a custom list called FixedSizeList<T> with a predetermined
+            //FixedSizeList<int> fixedList = new FixedSizeList<int>(4);
+
+            //fixedList.Add(5);
+            //fixedList.Add(10);
+            //fixedList.Add(15);
+            //fixedList.Add(20);
+
+            //Console.WriteLine("Element at index 3: " + fixedList.Get(3)); 
             #endregion
 
         }
