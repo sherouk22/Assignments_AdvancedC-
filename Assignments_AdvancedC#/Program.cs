@@ -109,7 +109,7 @@ namespace Assignments_AdvancedC_
             Console.WriteLine("Target was not found");
         }
 
-        static int[] FindIntersection(int[] array1, int[] array2)
+        public static int[] FindIntersection(int[] array1, int[] array2)
         {
             Dictionary<int, int> countMap = new Dictionary<int, int>();
             List<int> intersection = new List<int>();
@@ -134,6 +134,32 @@ namespace Assignments_AdvancedC_
             }
 
             return intersection.ToArray();
+        }
+
+        public static void Reverse(Queue<int> queue, int first)
+        {
+            if (first > queue.Count || first <= 0)
+                return;
+
+
+            Stack<int> stack = new Stack<int>();
+            for (int i = 0; i < first; i++)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+
+            while (stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
+
+
+
+            for (int i = 0; i < queue.Count - first; i++)
+            {
+                queue.Enqueue(queue.Dequeue());
+            }
         }
 
         static void Main(string[] args)
@@ -329,16 +355,39 @@ namespace Assignments_AdvancedC_
             #region 9. Given two arrays, find their intersection. Each element in the result should appear as many times as it shows in both arrays.
 
 
-            int[] arr1 = { 1, 2, 3, 4, 4 };
-            int[] arr2 = { 10, 4, 4 };
+            //int[] arr1 = { 1, 2, 3, 4, 4 };
+            //int[] arr2 = { 10, 4, 4 };
 
 
-            int[] result = FindIntersection(arr1, arr2);
+            //int[] result = FindIntersection(arr1, arr2);
 
 
-            Console.WriteLine("[" + string.Join(", ", result) + "]");
+            //Console.WriteLine("[" + string.Join(", ", result) + "]");
 
             #endregion
+
+
+            #region 11. Given a queue reverse first K elements of a queue, keeping the remaining elements in the same order
+
+
+            //Queue<int> queue = new Queue<int>(new int[] { 1, 2, 3, 4, 5 });
+            //int first = 3;
+
+            //Reverse(queue, first);
+
+            //Console.WriteLine("[" + string.Join(", ", queue) + "]"); 
+            #endregion
+
+
+
+
+
+
+
+
+
+
+
 
         }
     }
