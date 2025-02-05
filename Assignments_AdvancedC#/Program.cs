@@ -81,6 +81,61 @@ namespace Assignments_AdvancedC_
             return true; 
         }
 
+
+        public static void PushAndSearchStack(int[] numbers, int target)
+        {
+
+            Stack<int> stack = new Stack<int>();
+
+
+            foreach (int num in numbers)
+            {
+                stack.Push(num);
+            }
+
+            int count = 0;
+
+
+            foreach (int num in stack)
+            {
+                count++;
+                if (num == target)
+                {
+                    Console.WriteLine($"Target was found successfully and the count = {count}");
+                    return;
+                }
+            }
+
+            Console.WriteLine("Target was not found");
+        }
+
+        static int[] FindIntersection(int[] array1, int[] array2)
+        {
+            Dictionary<int, int> countMap = new Dictionary<int, int>();
+            List<int> intersection = new List<int>();
+
+           
+            foreach (int num in array1)
+            {
+                if (countMap.ContainsKey(num))
+                    countMap[num]++;
+                else
+                    countMap[num] = 1;
+            }
+
+            
+            foreach (int num in array2)
+            {
+                if (countMap.ContainsKey(num) && countMap[num] > 0)
+                {
+                    intersection.Add(num);
+                    countMap[num]--; 
+                }
+            }
+
+            return intersection.ToArray();
+        }
+
         static void Main(string[] args)
         {
 
@@ -260,8 +315,30 @@ namespace Assignments_AdvancedC_
 
             #endregion
 
+            #region 8. Create a function that pushes a series of integers onto a stack. 
+
+            //Console.WriteLine("inter the target :");
+            //int target = int.Parse(Console.ReadLine());
+
+            //int[] array = [10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+            //PushAndSearchStack(array, target);
+
+            #endregion
+
+            #region 9. Given two arrays, find their intersection. Each element in the result should appear as many times as it shows in both arrays.
 
 
+            int[] arr1 = { 1, 2, 3, 4, 4 };
+            int[] arr2 = { 10, 4, 4 };
+
+
+            int[] result = FindIntersection(arr1, arr2);
+
+
+            Console.WriteLine("[" + string.Join(", ", result) + "]");
+
+            #endregion
 
         }
     }
